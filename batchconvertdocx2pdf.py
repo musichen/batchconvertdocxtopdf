@@ -41,25 +41,4 @@ for filename in os.listdir(args.input_folder):
         output_path = os.path.join(args.output_folder, output_filename)
         os.system(f'pandoc "{input_path}" -o "{output_path}"')
 
-
-import os
-import argparse
-
-
-
-# Parse command-line arguments
-parser = argparse.ArgumentParser(description='Batch convert docx files to pdf')
-parser.add_argument('input_folder', type=str, help='path to the input folder containing docx files')
-parser.add_argument('output_folder', type=str, help='path to the output folder for pdf files')
-args = parser.parse_args()
-
-# Loop over the docx files in the input folder
-for filename in os.listdir(args.input_folder):
-    if filename.endswith('.docx'):
-        # Generate the output filename by replacing the extension
-        output_filename = os.path.splitext(filename)[0] + '.pdf'
-
-        # Call Pandoc to convert the input file to PDF
-        input_path = os.path.join(args.input_folder, filename)
-        output_path = os.path.join(args.output_folder, output_filename)
-        subprocess.run(['pandoc', input_path, '-o', output_path])
+# conversion done
