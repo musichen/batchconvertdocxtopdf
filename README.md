@@ -22,6 +22,12 @@ python batchconvertdocx2pdf.py 'path_to_folder_with_docx_INPUT' 'path_to_folder_
 - The second argument is the folder where the generated PDFs are written.
 - Every `.docx` file in the input folder is converted. The PDF keeps the same base name, for example `report.docx` becomes `report.pdf`.
 
+## Troubleshooting
+
+- **`Pandoc is not installed`**: install Pandoc from https://pandoc.org/installing.html and run the script again. The script checks `pandoc -v` at startup and exits early without it.
+- **`pdflatex is not installed`**: install a LaTeX distribution (TeX Live, MiKTeX, or `brew install mactex` on macOS). The script checks `pdflatex -v` the same way.
+- **No PDFs produced**: confirm the input folder path is correct, the files end in `.docx` (lowercase), and the output folder path is writable. Files with other extensions are skipped silently.
+
 ## License
 
 GNU General Public License v3.0. See [LICENSE](LICENSE).
